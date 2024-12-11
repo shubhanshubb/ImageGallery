@@ -1,12 +1,21 @@
-import { View, Text } from 'react-native'
-import React from 'react'
+import React from 'react';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import AppNavigator from './navigators/AppNavigator';
 
 const App = () => {
-  return (
-    <View>
-      <Text>App</Text>
-    </View>
-  )
-}
+  const MyTheme = {
+    ...DefaultTheme,
+    colors: {
+      ...DefaultTheme.colors,
+      background: 'white',
+    },
+  };
 
-export default App
+  return (
+    <NavigationContainer theme={MyTheme}>
+      <AppNavigator />
+    </NavigationContainer>
+  );
+};
+
+export default App;
