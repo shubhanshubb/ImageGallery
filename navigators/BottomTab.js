@@ -40,7 +40,7 @@ const BottomTab = () => {
           return (
             <AIcon
               name={imageSource}
-              size={25}
+              size={24}
               color={focused ? 'black' : 'gray'}
             />
           );
@@ -55,6 +55,7 @@ const BottomTab = () => {
           },
         tabBarStyle: {
           backgroundColor: '#E7EEFA',
+          height: 60,
         },
         headerShown: false,
         tabBarHideOnKeyboard: true,

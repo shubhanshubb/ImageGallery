@@ -1,7 +1,6 @@
 import {Platform} from 'react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {useNavigation} from '@react-navigation/native';
 import Splash from '../src/Splash';
 import BottomTab from './BottomTab';
 
