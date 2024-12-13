@@ -47,77 +47,77 @@ const Search = () => {
           onChangeText={setSearch} />
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
-        {loading && <Text style={styles.loading}>Loading...</Text>}
-        <View style={styles.mainContainer}>
-          <View style={styles.imageContainer}>
-            <Image source={{ uri: "https://picsum.photos/id/46/3264/2448" }} style={styles.image} />
-            <Text style={styles.topSearch}>Take Challenges to grow</Text>
-          </View>
-          <View style={styles.hastagContainer}>
-            <View style={styles.itemLine}>
-              <Text style={styles.itemHeader}>#Trending </Text>
-              <TouchableOpacity>
-                <Text style={styles.seeAll}>See all</Text>
-              </TouchableOpacity>
+        {loading ? <Text style={styles.loading}>Loading...</Text> :
+          <View style={styles.mainContainer}>
+            <View style={styles.imageContainer}>
+              <Image source={{ uri: "https://picsum.photos/id/46/3264/2448" }} style={styles.image} />
+              <Text style={styles.topSearch}>Take Challenges to grow</Text>
             </View>
-            <FlatList
-              style={{ marginTop: 10 }}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              data={imagesList}
-              renderItem={({ item }) => (
-                <Image source={{ uri: item.download_url }} style={styles.squareImage} />
-              )}
-              keyExtractor={item => item.id}
-              onEndReached={() => {
-                setPage(page + 1);
-                imagesData();
-              }}
-            />
-          </View>
-          <View style={styles.hastagContainer}>
-            <View style={styles.itemLine}>
-              <Text style={styles.itemHeader}>Top Community </Text>
-              <TouchableOpacity>
-                <Text style={styles.seeAll}>See all</Text>
-              </TouchableOpacity>
+            <View style={styles.hastagContainer}>
+              <View style={styles.itemLine}>
+                <Text style={styles.itemHeader}>#Trending </Text>
+                <TouchableOpacity>
+                  <Text style={styles.seeAll}>See all</Text>
+                </TouchableOpacity>
+              </View>
+              <FlatList
+                style={{ marginTop: 10 }}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={imagesList}
+                renderItem={({ item }) => (
+                  <Image source={{ uri: item.download_url }} style={styles.squareImage} />
+                )}
+                keyExtractor={item => item.id}
+                onEndReached={() => {
+                  setPage(page + 1);
+                  imagesData();
+                }}
+              />
             </View>
-            <FlatList
-              style={{ marginTop: 10 }}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              data={searchList}
-              renderItem={({ item }) => (
-                <Image source={{ uri: item.download_url }} style={styles.squareImage} />
-              )}
-              keyExtractor={item => item.id}
-            />
-          </View>
-          <View style={styles.hastagContainer}>
-            <View style={styles.itemLine}>
-              <Text style={styles.itemHeader}>Top Contributor </Text>
-              <TouchableOpacity>
-                <Text style={styles.seeAll}>See all</Text>
-              </TouchableOpacity>
+            <View style={styles.hastagContainer}>
+              <View style={styles.itemLine}>
+                <Text style={styles.itemHeader}>Top Community </Text>
+                <TouchableOpacity>
+                  <Text style={styles.seeAll}>See all</Text>
+                </TouchableOpacity>
+              </View>
+              <FlatList
+                style={{ marginTop: 10 }}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={searchList}
+                renderItem={({ item }) => (
+                  <Image source={{ uri: item.download_url }} style={styles.squareImage} />
+                )}
+                keyExtractor={item => item.id}
+              />
             </View>
-            <FlatList
-              style={{ marginTop: 10 }}
-              horizontal
-              showsHorizontalScrollIndicator={false}
-              data={peopleData}
-              renderItem={({ item }) => (
-                <View>
-                  <Image source={{ uri: item.download_url }} style={styles.circleImage} />
-                  <Text style={styles.authorName}
-                    ellipsizeMode='tail'
-                    numberOfLines={2}
-                  >{item.author}</Text>
-                </View>
-              )}
-              keyExtractor={item => item.id}
-            />
-          </View>
-        </View>
+            <View style={styles.hastagContainer}>
+              <View style={styles.itemLine}>
+                <Text style={styles.itemHeader}>Top Contributor </Text>
+                <TouchableOpacity>
+                  <Text style={styles.seeAll}>See all</Text>
+                </TouchableOpacity>
+              </View>
+              <FlatList
+                style={{ marginTop: 10 }}
+                horizontal
+                showsHorizontalScrollIndicator={false}
+                data={peopleData}
+                renderItem={({ item }) => (
+                  <View>
+                    <Image source={{ uri: item.download_url }} style={styles.circleImage} />
+                    <Text style={styles.authorName}
+                      ellipsizeMode='tail'
+                      numberOfLines={2}
+                    >{item.author}</Text>
+                  </View>
+                )}
+                keyExtractor={item => item.id}
+              />
+            </View>
+          </View>}
       </ScrollView>
     </View>
   )
@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: '#ebecf0',
   },
-  loading:{
+  loading: {
     textAlign: 'center',
     marginTop: 20,
     fontSize: 20,
