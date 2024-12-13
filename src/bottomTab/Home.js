@@ -70,10 +70,10 @@ const Home = () => {
         </View>
         <View style={{ flexDirection: 'column' }}>
           <TouchableOpacity onPress={() => handleLike()}>
-            <AIcon name="hearto" size={30} color="#2655a3" />
+            <AIcon name="heart" size={30} color="red" />
           </TouchableOpacity>
           <TouchableOpacity onPress={() => handleShare()}>
-            <MCIcon name="share" size={30} color="#2655a3" />
+            <MCIcon name="share" size={30} color="red" />
           </TouchableOpacity>
         </View>
       </View>
@@ -83,7 +83,7 @@ const Home = () => {
   return (
     <View style={styles.container}>
       {loading && page === 1 ? (
-        <ActivityIndicator size="large" color="#0000ff" />
+        <ActivityIndicator size="large" color="#1655a3" />
       ) : (
         <FlatList
           data={images}
